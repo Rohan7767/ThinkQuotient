@@ -111,7 +111,6 @@ const qustionDataBase = [
       data.checked = false;
     });
   };
-  
   submitButton.addEventListener("click", () => {
     const checkAnswer = goCheckAnswer();
     console.log(checkAnswer);
@@ -127,8 +126,13 @@ const qustionDataBase = [
       scoreArea.style.display = "block";
       scoreArea.innerHTML = `
         <h3>Your score is ${score} / ${qustionDataBase.length}</h3>
-        <button class='btn' onclick='location.reload()'>Play Again</button>
+        <button class='btn' onclick='loadNextPage()'>Next Page</button>
         `;
+        function loadNextPage() {
+          var script = document.createElement('script');
+          script.src = 'aptitude-test.html';
+          document.head.appendChild(script);
+        }
     }
   });
   
