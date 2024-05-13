@@ -130,7 +130,7 @@ const qustionDataBase = [
         `;
         function loadNextPage() {
           var script = document.createElement('script');
-          script.src = 'aptitude-test.html';
+          script.src = 'aptitude-test.js';
           document.head.appendChild(script);
         }
     }
