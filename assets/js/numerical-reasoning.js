@@ -164,9 +164,11 @@ const qustionDataBase = [
     } else {
       scoreArea.style.display = "block";
       scoreArea.innerHTML = `
-        <h3>Your score is ${score} / ${qustionDataBase.length}</h3>
-        <button class='btn' onclick='location.reload()'>Play Again</button>
+        <button class='btn' onclick="window.location.href = 'logical-reasoning.html';">Next Page</button>
         `;
+        // After calculating the final score
+        localStorage.setItem('score1', score);
+
     }
   });
   

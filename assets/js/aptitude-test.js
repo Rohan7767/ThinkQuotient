@@ -153,10 +153,12 @@ const qustionDataBase = [
       mainFunc();
     } else {
       scoreArea.style.display = "block";
-      scoreArea.innerHTML = `
-        <h3>Your score is ${score} / ${qustionDataBase.length}</h3>
-        <button class='btn' onclick='location.reload()'>Play Again</button>
+      scoreArea.innerHTML = `    
+        <button class='btn' onclick="window.location.href = 'index.html';">Go to Results</button>
         `;
+        // After calculating the final score
+        localStorage.setItem('score1', score);
+
     }
   });
   

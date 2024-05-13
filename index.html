@@ -245,35 +245,98 @@
         </div>
       </div>
       <div>
-        <html>
+        <html lang="en">
           <head>
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
-              google.charts.load("current", {packages:["corechart"]});
-              google.charts.setOnLoadCallback(drawChart);
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Task', 'Hours per Day'],
-                  ['Numerical-Reasoning', 11],
-                  ['Aptitude-test', 2],
-                  ['Logical Reasoning',  2],
-                  ['Personality Test', 9],
-                ]);
-        
-                var options = {
-                  title: 'Your Final Results',
-                  is3D: true,
-                };
-        
-                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                chart.draw(data, options);
-              }
-            </script>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Score Bar Chart</title>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           </head>
           <body>
-            <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+              <h1>Your Result</h1>
+              <!-- Create a canvas element for the chart -->
+              <canvas id="scoreChart" width="30" height="5"></canvas>
+              <div id="feedback"></div>
+              <div id="totalScore"></div>
+          
+              <script>
+                  // Retrieve scores from local storage
+                  var score1 = parseInt(localStorage.getItem('score1') || 0);
+                  var score2 = parseInt(localStorage.getItem('score2') || 0);
+                  var score3 = parseInt(localStorage.getItem('score3') || 0);
+                  var score4 = parseInt(localStorage.getItem('score4') || 0);
+                  
+                  // Calculate total score
+                  var totalScore = score1 + score2 + score3 + score4;
+          
+                  // Display the total score
+                  var totalScoreElement = document.getElementById('totalScore');
+                  totalScoreElement.innerHTML = "<h3>Total Score: " + totalScore + "</h3>";
+          
+                  // Determine feedback based on score range
+                  var feedback = '';
+                  if (totalScore <= 48 && totalScore >= 40) {
+                      feedback = 'Field Marshal';
+                  } else if (totalScore <= 40 && totalScore >= 36) {
+                      feedback = 'General';
+                  } else if (totalScore <= 35 && totalScore >= 31) {
+                      feedback = 'Brigadier';
+                  } else if (totalScore <= 30 && totalScore >= 26) {
+                      feedback = 'Colonel';
+                  } else if (totalScore <= 25 && totalScore >= 21) {
+                      feedback = 'Major';
+                  } else if (totalScore <= 20 && totalScore >= 16) {
+                      feedback = 'Captain';
+                  } else if (totalScore <= 15 && totalScore >= 11) {
+                      feedback = 'Lieutenant';
+                  } else if (totalScore <= 10 && totalScore >= 6) {
+                      feedback = 'Naik';
+                  } else if (totalScore <= 6 && totalScore >= 1) {
+                      feedback = 'Private';
+                  } else if (totalScore === 0) {
+                      feedback = 'Try Harder';
+                  }
+          
+                  // Display the feedback
+                  var feedbackElement = document.getElementById('feedback');
+                  feedbackElement.innerHTML = "<h3>Feedback: " + feedback + "</h3>";
+          
+                  // Create a bar chart
+                  var ctx = document.getElementById('scoreChart').getContext('2d');
+                  var myChart = new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: ['Numerical Reasoning', 'Logical Reasoning', 'Personality Test', 'Aptitude Test'],
+                          datasets: [{
+                              label: 'Scores',
+                              data: [score1, score2, score3, score4],
+                              backgroundColor: [
+                                  'rgba(255, 99, 132, 0.2)',
+                                  'rgba(54, 162, 235, 0.2)',
+                                  'rgba(255, 206, 86, 0.2)',
+                                  'rgba(75, 192, 192, 0.2)'
+                              ],
+                              borderColor: [
+                                  'rgba(255, 99, 132, 1)',
+                                  'rgba(54, 162, 235, 1)',
+                                  'rgba(255, 206, 86, 1)',
+                                  'rgba(75, 192, 192, 1)'
+                              ],
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          scales: {
+                              y: {
+                                  beginAtZero: true,
+                                  max: 12
+                              }
+                          }
+                      }
+                  });
+              </script>
           </body>
-        </html>
+          </html>
       </div>
     </section><!-- End Features Section -->
     <!-- ======= Team Section ======= -->

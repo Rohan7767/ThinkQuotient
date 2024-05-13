@@ -154,8 +154,10 @@ submitButton.addEventListener("click", () => {
   } else {
     scoreArea.style.display = "block";
     scoreArea.innerHTML = `
-    <h3>Your score is ${score} / ${qustionDataBase.length}</h3>
-    <button class='btn' onclick='location.reload()'>Play Again</button>
+    <button class='btn' onclick="window.location.href = 'personality-test.html';">Next Page</button>
     `;
+    // After calculating the final score
+    localStorage.setItem('score2', score);
+
   }
 });

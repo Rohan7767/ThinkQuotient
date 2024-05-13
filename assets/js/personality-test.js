@@ -15,7 +15,7 @@ const qustionDataBase = [
     question: "Are you easily disappointed?",
     option1: "Yes",
     option2: "No",
-    ans: "answer1",
+    ans: "answer2",
   },
   {
     question: "Do you set up long term goals?",
@@ -27,7 +27,7 @@ const qustionDataBase = [
     question: "Are you easily fazed?",
     option1: "Yes",
     option2: "No",
-    ans: "answer1",
+    ans: "answer2",
   },
   {
     question: "Are you always busy?",
@@ -39,7 +39,7 @@ const qustionDataBase = [
     question: "Do you feel overwhelmed often?",
     option1: "Yes",
     option2: "No",
-    ans: "answer1",
+    ans: "answer2",
   },
   {
     question: "Do you like solving complex problems?",
@@ -125,14 +125,11 @@ const qustionDataBase = [
     } else {
       scoreArea.style.display = "block";
       scoreArea.innerHTML = `
-        <h3>Your score is ${score} / ${qustionDataBase.length}</h3>
-        <button class='btn' onclick='loadNextPage()'>Next Page</button>
+        <button class='btn' onclick="window.location.href = 'aptitude-test.html';">Next Page</button>
         `;
-        function loadNextPage() {
-          var script = document.createElement('script');
-          script.src = 'aptitude-test.js';
-          document.head.appendChild(script);
-        }
+        // After calculating the final score
+        localStorage.setItem('score3', score);
+
     }
   });
   
