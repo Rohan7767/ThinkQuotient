@@ -154,7 +154,7 @@ const qustionDataBase = [
     } else {
       scoreArea.style.display = "block";
       scoreArea.innerHTML = `    
-        <button class='btn' onclick="window.location.href = 'index.html';">Go to Results</button>
+        <button class='btn' onclick="window.location.href = 'index.html#features';">Go to Results</button>
         `;
         // After calculating the final score
         localStorage.setItem('score1', score);

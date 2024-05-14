@@ -33,7 +33,7 @@
           <li><a class="nav-link scrollto active" href="#team">Team</a></li>
           <li><a class="nav-link scrollto " href="./tetris.html">Fun Games</a></li>
           <li><a class="nav-link scrollto active" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto active" href="#about">Login/SignUp</a></li>
+          <li><a class="getstarted scrollto active" href="./login.html">Login/SignUp</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -198,7 +198,7 @@
               <div class="card-body">
                 <h5 class="card-title"><a href="">Get your analysis anytime, anywhere</a></h5>
                 <p class="card-text">Get live analysis</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <div class="read-more"></div>
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@
               <div class="card-body">
                 <h5 class="card-title"><a href="">Extremely reliable</a></h5>
                 <p class="card-text">Many user rated it as Highly Reliable</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <div class="read-more"></div>
               </div>
             </div>
 
@@ -217,7 +217,7 @@
               <div class="card-body">
                 <h5 class="card-title"><a href="">Analyze yourself within 10 mins</a></h5>
                 <p class="card-text">Get a quick and rapid analysis of yourself</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <div class="read-more"></div>
               </div>
             </div>
           </div>
@@ -226,7 +226,7 @@
               <div class="card-body">
                 <h5 class="card-title"><a href="">Face Real Time Challenging Questions</a></h5>
                 <p class="card-text">Answer questions which are highly asked in Interviews and really applicable in real life</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                <div class="read-more"></div>
               </div>
             </div>
           </div>
@@ -249,7 +249,7 @@
           <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Score Bar Chart</title>
+              <title>Final Scores</title>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           </head>
           <body>
@@ -301,7 +301,7 @@
                   var feedbackElement = document.getElementById('feedback');
                   feedbackElement.innerHTML = "<h3>Feedback: " + feedback + "</h3>";
           
-                  // Create a bar chart
+                  // Create a bar chart with animation
                   var ctx = document.getElementById('scoreChart').getContext('2d');
                   var myChart = new Chart(ctx, {
                       type: 'bar',
@@ -326,6 +326,10 @@
                           }]
                       },
                       options: {
+                          animation: {
+                              duration: 3000, // Animation duration in milliseconds
+                              easing: 'easeInOutQuart' // Easing function for the animation
+                          },
                           scales: {
                               y: {
                                   beginAtZero: true,
@@ -337,6 +341,7 @@
               </script>
           </body>
           </html>
+          
       </div>
     </section><!-- End Features Section -->
     <!-- ======= Team Section ======= -->
